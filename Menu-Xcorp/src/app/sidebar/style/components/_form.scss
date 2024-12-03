@@ -1,0 +1,21 @@
+@import "../abstracts/variables";
+
+.radio-icon {
+  font-size: 1.5rem;
+  margin-right: 1rem;
+  color: #aeb4c6;
+  transition: all 0.2s ease;
+  cursor: pointer;
+
+  &.checked,
+  &:hover {
+    color: $primary;
+  }
+}
+
+.white-input.form-control {
+  border-color: white;
+  &:hover {
+    border-color: var(--x-border-secondary);
+  }
+}

@@ -1,0 +1,59 @@
+
+
+@import "./app/sidebar/style/tailwind/tailwind.scss";
+
+html {
+  // base
+  --x-white: #ffffff;
+  --x-black: #000000;
+  --x-orange: #ff7656;
+  --x-gray: #f5f6f8;
+  --x-logan: #a1a8cc;
+  --x-warning: #f2a403;
+
+  // app
+  --x-primary: #0053b3;
+  --x-secondary: #42526e;
+  --x-border: #dde8f1;
+  --x-border-secondary: #cddbe3;
+  --x-border-dropdown: #e6edf1;
+  --x-error: #ec4d57;
+  --x-border-table: #ddd;
+  --x-option-hover: #f5faff;
+  --x-blue: #4c9aff;
+  --x-yellow: #F1A404;
+  --x-text-color: #172b4d;
+  --x-light-color: #eef1f6;
+  --x-light-gray-color: #d5dce9;
+  --x-slate-gray: #6b778c;
+  --x-light-gray: #737373;
+  --x-btn-hover: #ebecf0;
+  --x-option-selected-color: #ebf5ff;
+  --x-bg-avatar: #df6e4f;
+  --x-bright-blue: #207cf3;
+  --x-pale-gray: #f5f5f5;
+  // business
+  --x-task-background: #dce5ff;
+  --x-holiday-background: #fcc657;
+  --x-leave-background: #fbdbdd;
+  --x-task: #537dff;
+  --x-story-background: #e4f2e4;
+  --x-story: #77be79;
+  --x-bug-background: #fbdbdd;
+  --x-bug: #ec4d57;
+  --x-border-selected-item: #d7e4f2;
+  --x-filter-item-clear: #d1e8ff;
+  --x-bg-work-calendar: #fafbfc;
+  --x-default-company-logo: #b9f4ff;
+  --x-bg-more-avatar: #d5d5d5;
+  --x-row-hover: #fafbfc;
+  --x-event-background: #6df5ff;
+  --x-auth-confirm-bg: #d6f8ff;
+  --x-filter-item-bg: #edf5fe;
+  --x-changed-field: #e6f9e7;
+  --x-progress: #57aed1;
+  --x-day-off: #F5F6F9;
+
+  // landing-page
+  --x-landing-menu: 98px;
+}

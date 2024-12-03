@@ -1,0 +1,31 @@
+/* Modern browsers with `scrollbar-*` support */
+@supports (scrollbar-width: thin) {
+  * {
+    scrollbar-color: var(--x-btn-hover) white !important;
+    scrollbar-width: thin !important;
+    &:not(:hover) {
+      scrollbar-color: transparent transparent !important;
+    }
+  }
+}
+
+/* Legacy browsers with `::-webkit-scrollbar-*` support */
+@supports selector(::-webkit-scrollbar) {
+  * {
+    &::-webkit-scrollbar {
+      background-color: transparent;
+      width: 5px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: transparent;
+    }
+
+    &:hover {
+      &::-webkit-scrollbar-thumb {
+        transition: all 2s ease-in 0s;
+        background-color: var(--x-btn-hover);
+        opacity: 0.5;
+      }
+    }
+  }
+}

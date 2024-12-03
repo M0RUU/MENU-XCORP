@@ -1,0 +1,43 @@
+@import '../abstracts/variables/color.scss';
+
+.custom-tabset {
+  .tab-container {
+    .nav-tabs {
+      .nav-link {
+        font-weight: 500;
+        color: $secondary;
+        &.active {
+          color: $primary;
+        }
+      }
+    }
+
+    .tab-content {
+      padding-top: 1.5rem;
+    }
+  }
+
+  &.sticky-tabset {
+    .tab-content {
+      .tab-content-list {
+        max-height: 400px;
+        overflow: auto;
+        position: relative;
+        .comment-item-input {
+          position: sticky;
+          margin-bottom: 0 !important;
+          padding-bottom: 1rem;
+          z-index: 1000;
+          background: white;
+
+          &.desc {
+            top: 0;
+          }
+          &.asc {
+            bottom: 0;
+          }
+        }
+      }
+    }
+  }
+}

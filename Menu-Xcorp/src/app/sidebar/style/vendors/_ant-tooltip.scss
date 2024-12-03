@@ -1,0 +1,19 @@
+.ant-tooltip {
+  .ant-tooltip-content {
+    .ant-tooltip-arrow {
+      display: none;
+    }
+    .ant-tooltip-inner {
+      max-width: 200px;
+      padding: 0.25rem 0.5rem;
+      color: var(--x-white);
+      text-align: center;
+      background-color: var(--x-text-color);
+      border-radius: 0.25rem;
+      min-height: unset;
+      height: 25px;
+      font-size: 12px;
+      box-shadow: unset;
+    }
+  }
+}

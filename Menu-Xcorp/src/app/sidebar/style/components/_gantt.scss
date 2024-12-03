@@ -1,0 +1,49 @@
+.endpoint {
+  background-repeat: no-repeat;
+  height: 25px;
+  margin-top: -5px;
+  z-index: 2;
+  width: 25px;
+  background-image: url('/assets/icons/endpoint-white.svg');
+
+  &.left {
+    margin-left: -15px;
+    transform: translateX(-6.5px) translateY(-7.5px) !important;
+  }
+
+  &.right {
+    margin-left: 5px;
+    transform: translateX(-6.5px) translateY(-8px) !important;
+  }
+
+  &.jtk-endpoint-drop-allowed {
+    background-image: url('/assets/icons/endpoint-blue.svg');
+  }
+}
+
+.close-connection {
+  cursor: pointer;
+  z-index: 1;
+}
+
+.adjust-progress.cdk-drag-placeholder:after {
+  content: attr(percent);
+  color: #fff;
+  padding: 0px 8px;
+  text-align: center;
+  background-color: #172b4d;
+  border-radius: 0.25rem;
+  font-size: 12px;
+  transform: translate3d(-23%, -28px, 0px);
+  position: absolute;
+}
+
+.adjust-progress.cdk-drag-placeholder:before {
+  border: solid;
+  border-color: #172b4d transparent;
+  border-width: 5px 6px 0 6px;
+  content: '';
+  transform: translate3d(15%, -11px, 0px);
+  position: absolute;
+}
+

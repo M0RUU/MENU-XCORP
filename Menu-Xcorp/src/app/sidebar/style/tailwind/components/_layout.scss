@@ -1,0 +1,7 @@
+
+@import "../../abstracts/variables";
+
+.r-outlet {
+  height: calc(100vh - $navbarHeight);
+  @apply relative overflow-y-auto px-2.5 bg-[var(--x-pale-gray)] overflow-x-hidden;
+}

@@ -1,0 +1,96 @@
+@import './dropdown';
+
+.ng-select {
+  &.ng-select-multiple {
+    .ng-input {
+      width: 0;
+    }
+    .ng-select-container {
+      .ng-value-container {
+        .ng-value {
+          display: inline-flex;
+          flex-direction: row-reverse;
+
+          .ng-value-icon.left {
+            border-left: $border-selected-item;
+            border-right: 0;
+          }
+        }
+      }
+    }
+  }
+
+  &.ng-select-single,
+  &.ng-select-multiple {
+    // custom clear all button
+    .ng-clear-wrapper {
+      color: $secondary;
+      margin-top: 1px;
+    }
+
+    // custom arrow icon
+    .ng-arrow-wrapper {
+      .ng-arrow {
+        border-color: $secondary transparent transparent;
+        &:hover {
+          border-color: $black transparent transparent;
+        }
+      }
+    }
+    &.ng-select-opened {
+      .ng-arrow-wrapper {
+        .ng-arrow {
+          border-color: transparent transparent $secondary;
+          &:hover {
+            border-color: transparent transparent $black;
+          }
+        }
+      }
+    }
+  }
+  // custom container when opened dropdown
+  &.ng-select-opened > .ng-select-container {
+    box-shadow: 0 0 0 0.8px $primary !important;
+    border-color: $primary;
+  }
+}
+
+.ng-select.custom-selected {
+  &.ng-select-multiple {
+    .ng-input {
+      width: 0;
+    }
+    .ng-select-container {
+      // show selected item (1 line), reverse clear button
+      .ng-value-container {
+        flex-wrap: nowrap !important;
+        overflow: hidden;
+
+        .ng-value {
+          flex-shrink: 0;
+          max-width: 150px;
+        }
+      }
+    }
+  }
+  // custom input
+  &.ng-select-multiple {
+    &.ng-select-searchable {
+      &.ng-select-focused,
+      &.ng-select-opened {
+        .ng-value-container {
+          overflow: auto;
+          .ng-input {
+            width: 30%;
+            min-width: 60px;
+            position: sticky;
+            right: 0px;
+            background: white;
+            outline: 3px solid white;
+          }
+        }
+
+      }
+    }
+  }
+}
