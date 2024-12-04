@@ -1,110 +1,21 @@
-<!-- 
-
-<div class="wrapper web-sidebar">
-  <div class="menu-wrapper">
-    <div class="menu flex-column">
-      <div class="group-menu">
-        <div *ngFor="let groupMenu of groupMenus">
-          <div *ngIf="groupMenu.hash">
-            {{ groupMenu.hash }}
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
- -->
-
- <div class="wrapper web-sidebar" [ngClass]="currentSize" *ngIf="isWebLayout">
-  <div class="menu-wrapper">
-    <div class="menu flex-column">
-      <ng-container *ngFor="let group of groupMenus; let i = index">
-        <div class="group-menu" *ngIf="isVisibleGroup(group)" [ngStyle]="{'order': group?.rowIndex || 1}">
-          <ng-container *ngFor="let item of group.childrens">
-            <ng-container *ngTemplateOutlet="template; context: { item : item, level : initLevel }"></ng-container>
-          </ng-container>
-        </div>
-      </ng-container>
-
-      <div class="toggle-wrapper">
-        <div style="position: relative;">
-          <div class="btn-toggle" (click)="changeSize()">
-            <span>
-              <mat-icon [svgIcon]="'angle-right'"></mat-icon>
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="toggle-wrapper">
-    <div style="position: relative;">
-      <div class="btn-toggle" (click)="changeSize()">
-        <span>
-          <mat-icon [svgIcon]="'angle-right'"></mat-icon>
-        </span>
-      </div>
-
-      <!-- TODO: sau này sẽ là tổng các noti number -->
-      <div class="notification-number total-noti-number"
-        *ngIf="waitingRequests > 0 && currentSize === sidebarSize.small">
-        {{waitingRequests}}
-      </div>
-    </div>
-  </div>
-</div>
-
-<ng-template #template let-item="item" let-level="level" let-absolute="absolute">
-  <div class="menu-item" *ngIf="item.hash | isVisibleHash : item">
-    <a class="item-link item-container" hover-dropdown [routerLink]="item.routerLink">
-      <div class="children-hover" *ngIf="isWebLayout && currentSize | isShowHoverChildren: item: level">
-        <div class="children-container d-flex flex-column">
-          <ng-container *ngFor="let child of item.childrens">
-            <div [ngStyle]="{'order': child?.rowIndex || 1}">
-              <ng-container *ngTemplateOutlet="template; context: {item : child, level: (level || initLevel) + 1, absolute: true }"></ng-container>
-            </div>
-          </ng-container>
-        </div>
-      </div>
-      <div class="item"
-        [ngClass]="{
-          'active': currentUrl | isActiveItem: item ,
-          'open':  !item.isCollapsed,
-          'child': level !== initLevel,
-          'hover-item': absolute,
-          'medium-item': currentSize === sidebarSize.medium
-        }"
-        (click)="onClickMenuItem(item)">
-        <ng-container *ngIf="item?.icon">
-          <span class="icon" *ngIf="!item?.hash">
-            <mat-icon class="fa icon-md" [svgIcon]="item.icon" *ngIf="!item.isMatIcon"></mat-icon>
+<div class="menu_item_container">
+    <div class="menu_item_wrapper">
+      <div class="outside_item" *ngFor="let item of menuItems">
+        <!-- Mục cha -->
+        <div class="menu-lv1" (click)="toggleMenu(item)" [ngClass]="{ 'active': item.open }">
+          <span>{{ item.text }}</span>
+          <span *ngIf="item.children" class="icon-arrow">
+            <mat-icon *ngIf="item.open == false" fontIcon="keyboard_arrow_down"></mat-icon>
+            <mat-icon *ngIf="item.open == true" fontIcon="keyboard_arrow_up"></mat-icon>
           </span>
-          <span class="icon"  *ngIf="item?.hash">
-            <span class="fa material-icons-outlined icon-md" *ngIf="item.isMatIcon">
-              {{item.icon}}
-            </span>
-            <mat-icon class="fa icon-md" [svgIcon]="item.icon" *ngIf="!item.isMatIcon"></mat-icon>
-            <div class="notification-number request-number"
-              *ngIf="waitingRequests > 0 && ((item.routerLink === leavePath) || item.routerLink === leaveApprovalPath)">
-              {{waitingRequests}}
-            </div>
-          </span>
-        </ng-container>
-        <span class="label">{{item}}</span>
-        <i class="fa collapse-icon" [ngClass]="item.isCollapsed ? 'fa-angle-down' : 'fa-angle-up'"
-          *ngIf="item.childrens && !item.isTabMenu && level === initLevel"></i>
-      </div>
-    </a>
-
-    <div class="collapse" [ngClass]="{'show': !item.isCollapsed}" *ngIf="item | isShowChildren: level">
-      <div class="d-flex flex-column">
-        <ng-container *ngFor="let child of item.childrens">
-          <div [ngStyle]="{'order': child?.rowIndex || 1}">
-            <ng-container *ngTemplateOutlet="template; context: {item : child, level: (level || initLevel) + 1 }"></ng-container>
+        </div>
+        <!-- Mục con -->
+        <div class="menu-lv2" *ngIf="item.children && item.open">
+          <div *ngFor="let child of item.children" class="menu-item-child">
+            {{ child.text }}
           </div>
-        </ng-container>
+        </div>
       </div>
     </div>
   </div>
-</ng-template>
+  
