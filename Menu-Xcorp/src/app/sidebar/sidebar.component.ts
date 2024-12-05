@@ -1,9 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { MenuItem } from './sidebar';
 import { CommonModule } from '@angular/common';
 import { menuItems } from './sidebar-menu';
 import { MatIconModule } from '@angular/material/icon';
-import { text } from 'stream/consumers';
 
 
 @Component({
@@ -18,9 +17,23 @@ import { text } from 'stream/consumers';
 })
 export class SidebarComponent {
   menuItems = menuItems;
+  selectedChild: MenuItem | null = null;
+  selectedParent: MenuItem | null = null;
 
   toggleMenu(item: MenuItem): void {
     item.open = !item.open;
-    console.log(item.text)
+  }
+
+  selectChild(child: MenuItem, parent: MenuItem): void {
+    this.selectedChild = child;
+    this.selectedParent = parent;
+  }
+  
+  isParentSelected(parent: MenuItem): boolean {
+    return this.selectedParent === parent;
+  }
+
+  isChildSelected(child: MenuItem): boolean {
+    return this.selectedChild === child;
   }
 }

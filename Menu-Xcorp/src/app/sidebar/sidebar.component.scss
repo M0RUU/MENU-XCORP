@@ -1,55 +1,49 @@
-.menu_item_container {
-    .menu_item_wrapper {
-      width: 240px;
-      background-color: white;
-      box-shadow: 1px 0 rgba(3, 10, 21, 0.078);
-      height: 100%;
-      overflow-y: auto;
-  
-      .outside_item {
-        .menu-lv1 {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          padding: 10px 15px;
-          cursor: pointer;
-          transition: background-color 0.3s ease;
-  
-          &:hover {
-            background-color: #f5f5f5;
-          }
-  
-          &.active {
-            background-color: #e6edf1;
-          }
-  
-          .icon-arrow {
-            font-size: 1.25rem;
-            transition: transform 0.3s ease;
-  
-            &.rotate {
-              transform: rotate(180deg);
-            }
-          }
+.menu_item_container {  
+  .menu_item_wrapper {
+    width: 240px;
+    background-color: white;
+    box-shadow: 1px 0 rgba(3, 10, 21, 0.078);
+    height: 100%;
+    overflow-y: auto;
+
+    .outside_item {
+      .menu-lv1 {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 15px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: #f5f5f5;
         }
-  
-        .menu-lv2 {
-          display: flex;
-          flex-direction: column;
-          padding-left: 20px;
-          background-color: #fafafa;
+
+        &.active-parent {
+          color: #0053b3;
         }
-  
-        .menu-item-child {
-          padding: 5px 15px;
-          cursor: pointer;
-          transition: background-color 0.3s ease;
-  
-          &:hover {
-            background-color: #f5f5f5;
-          }
+      }
+
+      .menu-lv2 {
+        display: flex;
+        flex-direction: column;
+        padding-left: 20px;
+        background-color: white;
+      }
+
+      .menu-item-child {
+        padding: 5px 15px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: #f5f5f5;
+        }
+
+        &.active-child {
+          color: #0053b3;
         }
       }
     }
   }
-  
+}
