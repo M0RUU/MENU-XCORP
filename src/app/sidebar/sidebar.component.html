@@ -1,0 +1,29 @@
+<div class="menu_item_container">
+  <div class="menu_item_wrapper">
+    <div class="outside_item" *ngFor="let item of menuItems">
+      <!-- Mục cha -->
+      <div 
+        class="menu-lv1" 
+        (click)="toggleMenu(item)" 
+        [ngClass]="{ 'active-parent': isParentSelected(item) }">
+        <span>{{ item.text }}</span>
+        <span *ngIf="item.children" class="icon-arrow">
+          <mat-icon *ngIf="!item.open" fontIcon="keyboard_arrow_down"></mat-icon>
+          <mat-icon *ngIf="item.open" fontIcon="keyboard_arrow_up"></mat-icon>
+        </span>
+      </div>
+      <!-- Mục con -->
+      <div 
+        class="menu-lv2" 
+        *ngIf="item.children && item.open">
+        <div 
+          class="menu-item-child" 
+          *ngFor="let child of item.children" 
+          (click)="selectChild(child, item)" 
+          [ngClass]="{ 'active-child': isChildSelected(child) }">
+          {{ child.text }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
