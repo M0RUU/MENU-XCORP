@@ -1,10 +1,40 @@
 .menu_item_container {  
+  position: relative;
+  width: fit-content;
+
+  
   .menu_item_wrapper {
     width: 240px;
+    height: calc(100vh - 50px);
     background-color: white;
     box-shadow: 1px 0 rgba(3, 10, 21, 0.078);
-    height: 100%;
     overflow-y: auto;
+    transition: width 0.3s ease;
+    
+    &.menu-shorter {
+      width: 70px;
+      transition: width 0.3s ease;
+    }
+
+    &.menu-shortest {
+      width: 20px;  
+      transition: width 0.3s ease;
+
+
+      .shorter-icon {
+        opacity: 0; 
+      }
+    }
+
+    &.menu-showing {
+      width: 240px;
+      transition: width 0.3 ease;
+
+      .outside_item {
+        opacity: 1;
+    }
+      
+    }
 
     .outside_item {
       .menu-lv1 {
@@ -14,6 +44,31 @@
         padding: 10px 15px;
         cursor: pointer;
         transition: background-color 0.3s ease;
+        font-size: 14px;
+
+        .icon {
+          display: inline-block;
+          width: 1.25rem;
+          height: 1.25rem;
+          line-height: 1.25rem;
+          text-align: center;
+        }
+
+        .shorter-icon {
+          font-size: 14px;
+          display: inline-block;
+        }
+
+        span {
+          transition: opacity 0.3s ease;
+        }
+
+        & .mat-icon {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          line-height: 1.3;
+        }
 
         &:hover {
           background-color: #f5f5f5;
@@ -21,28 +76,84 @@
 
         &.active-parent {
           color: #0053b3;
+
+          & .mat-icon {
+            color: #42526e;
+          }
         }
       }
 
       .menu-lv2 {
         display: flex;
         flex-direction: column;
-        padding-left: 20px;
+        padding-left: 18px;
         background-color: white;
+        font-size: 14px;
+
       }
 
       .menu-item-child {
-        padding: 5px 15px;
+        position: relative;
+        padding: 10px 15px;
         cursor: pointer;
         transition: background-color 0.3s ease;
 
+        &::before {
+          content: '';
+          position: absolute;
+          left: 3px;
+          top: 0;
+          bottom: 0;
+          width: 2.5px;
+          height: 0%;
+          align-self: center;
+          background-color: #dbdbdb;
+          transition: height 0.3s ease;
+        }
+
         &:hover {
           background-color: #f5f5f5;
+
+          &::before {
+            height: 80%; 
+            background-color: #dbdbdb;
+          }
         }
 
         &.active-child {
+          position: relative;
           color: #0053b3;
+
+          &::before {
+            height: 80%;
+            background-color: #0053b3;
+          }
         }
+      }
+    }
+
+    .btn-wide {
+      position: absolute;
+      top:15px;
+      right:-12px;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background-color: white;
+      color: #6b778c;
+      box-shadow: #091e4214 0 0 0 1px,#091e4214 0 1px 1px 1px;
+
+      & span {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      &:hover {
+        background: #0053b3;
+        color: white;
+        cursor: pointer;
       }
     }
   }
