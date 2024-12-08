@@ -47,16 +47,41 @@
         font-size: 14px;
 
         .icon {
-          display: inline-block;
-          width: 1.25rem;
-          height: 1.25rem;
-          line-height: 1.25rem;
-          text-align: center;
+          display: flex;
+          flex: 1;
+          width: 20px;
+          height: 20px;
+          cursor: pointer;
+          fill: currentColor;
+
+          img {
+            margin-right: 10px;
+          }
+
+          .custom-icon {
+            color:#4f4f4f;
+            font-size: 20px;
+            align-self: center;
+            margin-right: 10px;
+
+            & img {
+              filter: grayscale(100%)
+            }
+          }
+
+
+          .content {
+            font-size: 14px; 
+            color:#42526e;
+            font-weight: 400;  
+          }
         }
+       
 
         .shorter-icon {
           font-size: 14px;
           display: inline-block;
+          
         }
 
         span {
@@ -77,6 +102,19 @@
         &.active-parent {
           color: #0053b3;
 
+          .custom-icon {
+            color:#0053b3;
+          }
+
+          .content {
+            color:#0053b3;
+          }
+
+          img {
+            filter: invert(25%) sepia(100%) saturate(500%) hue-rotate(180deg); 
+          }
+          
+
           & .mat-icon {
             color: #42526e;
           }
@@ -89,6 +127,26 @@
         padding-left: 18px;
         background-color: white;
         font-size: 14px;
+
+        .icon {
+          display: flex;
+          flex: 1;
+          width: 20px;
+          height: 20px;
+          cursor: pointer;
+          fill: currentColor;
+
+          img {
+            margin-right: 10px;
+          }
+
+
+          .content {
+            font-size: 14px; 
+            color:#42526e;
+            font-weight: 400;  
+          }
+        }
 
       }
 
@@ -121,8 +179,19 @@
         }
 
         &.active-child {
-          position: relative;
           color: #0053b3;
+
+          .custom-icon {
+            color: #0053b3;
+          }
+
+          .content {
+            color: #0053b3;
+          }
+
+          img {
+            filter: invert(25%) sepia(100%) saturate(500%) hue-rotate(180deg); 
+          }
 
           &::before {
             height: 80%;
@@ -154,6 +223,27 @@
         background: #0053b3;
         color: white;
         cursor: pointer;
+      }
+    }
+
+    .menu-item {
+      display: flex;
+      height: 20px;
+
+      img {
+        margin-right: 10px;
+
+        // svg {
+        //   filter: invert(25%) sepia(100%) saturate(500%) hue-rotate(180deg); /* Tạo hiệu ứng màu */
+        // }
+      }
+
+      
+      .custom-icon {
+        color:#4f4f4f;
+        font-size: 20px;
+        align-self: center;
+        margin-right: 10px;
       }
     }
   }

@@ -3,7 +3,7 @@ import { MenuItem } from './sidebar';
 import { CommonModule } from '@angular/common';
 import { menuItems } from './sidebar-menu';
 import { MatIconModule } from '@angular/material/icon';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 
 @Component({
@@ -25,14 +25,32 @@ export class SidebarComponent {
   isMenuShortest: boolean = false;
   isShowed: boolean = false;
 
+  constructor(private router: Router) {}
+
+  navigation(route: string) {
+    if (route) {
+      this.router.navigate([route]);
+    }
+  }
+
   toggleMenu(item: MenuItem): void {
-    item.open = !item.open;
+    if (item.children) {
+      item.open = !item.open
+    } else {
+      this.selectedParent = item;
+      this.selectedChild = null;
+      this.navigation(item.route);
+    }
+  }
+
+  isMenuSelected(item: MenuItem): boolean {
+    return this.selectedParent === item && !item.children;
   }
   
-
   selectChild(child: MenuItem, parent: MenuItem): void {
     this.selectedChild = child;
     this.selectedParent = parent;
+    this.navigation(child.route)
   }
   
   isParentSelected(parent: MenuItem): boolean {

@@ -14,19 +14,45 @@
       <div 
         class="menu-lv1" 
         (click)="toggleMenu(item)" 
-        [ngClass]="{ 'active-parent': isParentSelected(item) }">
+        [ngClass]="{ 'active-parent': isParentSelected(item) || isMenuSelected(item) }">
 
-        <a [routerLink]="item.route" *ngIf="!isMenuShorter">
-          <img [src]="item.icon" /> {{ item.text }}
-        </a>
+        <ng-container 
+          *ngIf="(!isMenuShorter && !isMenuShortest) || isShowed" 
+          class="shorter-icon">
+          <div class="menu-item">
+            <ng-container
+              *ngIf="item.icon.includes('assets/')">
+                <img [src]="item.icon"/> 
+            </ng-container>
 
-        <a [routerLink]="item.route" *ngIf="isMenuShorter && !isMenuShortest" class="shorter-icon">
-          <img [src]="item.icon"/>
-        </a>
+            <ng-container
+              *ngIf="!item.icon.includes('assets/')"> 
+                <span class="material-icons custom-icon">
+                  {{ item.icon }}
+                </span>
+            </ng-container>
+            <span class="content">{{ item.text }}</span>  
+          </div>
+        </ng-container>
+        
+        <ng-container 
+          *ngIf="isMenuShorter && !isMenuShortest"
+          class="shorter-icon">
+            <div class="menu-item">
+              <ng-container
+                *ngIf="item.icon.includes('assets/')">
+                <img [src]="item.icon"/> 
+              </ng-container>
 
-        <a [routerLink]="item.route" *ngIf="isMenuShortest" class="shorter-icon">
-          <img [src]="item.icon" />
-        </a>
+              <ng-container
+                *ngIf="!item.icon.includes('assets/')">
+                <span class="material-icons custom-icon">
+                  {{ item.icon }}
+                </span>
+              </ng-container>
+          </div>
+        </ng-container>
+
 
         <span *ngIf="item.children" class="icon-arrow">
           <mat-icon *ngIf="!item.open" fontIcon="keyboard_arrow_down" style="font-size: 1.25rem;"></mat-icon>
@@ -46,24 +72,51 @@
             'menu-shorter': isMenuShorter,
             'menu-shortest': isMenuShortest  
           }">
-          <span *ngIf="!isMenuShorter">
-            {{ child.icon }}  {{ child.text }}
-          </span>
-          <span *ngIf="isMenuShorter && !isMenuShortest" class="shorter-icon">
-            {{ child.icon }}
-          </span>
-          <span *ngIf="isMenuShortest" class="shorter-icon">
-            {{ child.icon }}
-          </span>
-        </div>
+
+          <ng-container 
+          *ngIf="(!isMenuShorter && !isMenuShortest) || isShowed" 
+          class="shorter-icon">
+          <div class="menu-item" >
+            <ng-container
+              *ngIf="child.icon.includes('assets/')">
+                <img [src]="child.icon"/> 
+            </ng-container>
+
+            <ng-container
+              *ngIf="!child.icon.includes('assets/')">
+                <span class="material-icons custom-icon">
+                  {{ child.icon }}
+                </span>
+            </ng-container>
+            <span class="content">{{ child.text }}</span>  
+          </div>
+        </ng-container>
+          
+        
+        <ng-container 
+          *ngIf="isMenuShorter && !isMenuShortest">
+            <div class="menu-item">
+              <ng-container
+                *ngIf="child.icon.includes('assets/')">
+                <img [src]="child.icon"/> 
+              </ng-container>
+
+              <ng-container
+                *ngIf="!child.icon.includes('assets/')">
+                <span class="material-icons custom-icon">
+                  {{ child.icon }}
+                </span>
+              </ng-container>
+            </div> 
+        </ng-container>
       </div>
     </div>
+  </div>
     <div class="btn-wide">
         <span 
           class="btn-wide-align"
           (click)="shortingBTN()"
           (mouseover)="stopBTN($event)">
-          <!-- <mat-icon fontIcon="keyboard_arrow_left" style="font-size: 1.25rem;"></mat-icon> -->
           <svg width="100%" height="100%" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
             <path d="M10.294 9.698a.988.988 0 0 1 0-1.407 1.01 1.01 0 0 1 1.419 0l2.965 2.94a1.09 1.09 0 0 1 0 1.548l-2.955 2.93a1.01 1.01 0 0 1-1.42 0 .988.988 0 0 1 0-1.407l2.318-2.297-2.327-2.307z" fill="currentColor"></path>
           </svg>
