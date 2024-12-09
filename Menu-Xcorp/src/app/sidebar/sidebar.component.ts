@@ -72,12 +72,12 @@ export class SidebarComponent implements OnInit {
 
   navigation(route: string) {
     if (route) {
-      this.router.navigate([route]);
       this.router.navigateByUrl(route).catch((err) => {
         console.error('Navigation Error:', err);
       });
     }
   }
+  
 
 
   toggleMenu(item: MenuItem): void {
