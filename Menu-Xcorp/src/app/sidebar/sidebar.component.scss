@@ -9,30 +9,47 @@
     background-color: white;
     box-shadow: 1px 0 rgba(3, 10, 21, 0.078);
     overflow-y: auto;
+    overflow-x: hidden;
     transition: width 0.3s ease;
     
     &.menu-shorter {
       width: 70px;
-      transition: width 0.3s ease;
+      transition: width 0.4s ease;
+
+      & .menu-lv1 {
+        & .menu-item {
+          img {
+            margin-right : 0
+          }
+
+          span {
+            margin-right: 0;
+          }
+        }
+      }
     }
 
     &.menu-shortest {
       width: 20px;  
-      transition: width 0.3s ease;
+      transition: width 0.4s ease;
+      scrollbar-width: none;
 
 
-      .shorter-icon {
-        opacity: 0; 
+      .btn-wide {
+        span {
+          transform: rotate(0deg);
+        }
       }
     }
 
     &.menu-showing {
       width: 240px;
-      transition: width 0.3 ease;
 
-      .outside_item {
-        opacity: 1;
-    }
+      .btn-wide {
+        span {
+          transform: rotate(0deg);
+        }
+      }
       
     }
 
@@ -152,7 +169,7 @@
 
       .menu-item-child {
         position: relative;
-        padding: 10px 15px;
+        padding: 13px 15px;
         cursor: pointer;
         transition: background-color 0.3s ease;
 
@@ -166,7 +183,7 @@
           height: 0%;
           align-self: center;
           background-color: #dbdbdb;
-          transition: height 0.3s ease;
+          // transition: height 0.3s ease;
         }
 
         &:hover {
@@ -217,6 +234,8 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        transform: rotate(180deg);
+        transition: all 0.4s ease-in-out;
       }
 
       &:hover {
@@ -224,6 +243,8 @@
         color: white;
         cursor: pointer;
       }
+
+      
     }
 
     .menu-item {

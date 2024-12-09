@@ -9,12 +9,15 @@
       'menu-shortest': isMenuShortest && !isShowed,
       'menu-showing': isMenuShortest && isShowed
     }">
-    <div class="outside_item" *ngFor="let item of menuItems">
+    <div class="outside_item" *ngFor="let item of menuItems"> 
       <!--  -->
       <div 
         class="menu-lv1" 
         (click)="toggleMenu(item)" 
-        [ngClass]="{ 'active-parent': isParentSelected(item) || isMenuSelected(item) }">
+        [ngClass]="{ 
+          'active-parent': isParentSelected(item) || isMenuSelected(item) || isCurrentRoute(item.route),
+          'selected': isCurrentRoute(item.route) || isParentRoute(item)
+        }">
 
         <ng-container 
           *ngIf="(!isMenuShorter && !isMenuShortest) || isShowed" 
@@ -67,16 +70,16 @@
           class="menu-item-child" 
           *ngFor="let child of item.children" 
           (click)="selectChild(child, item)" 
-          [ngClass]="{ 'active-child': isChildSelected(child) }"
           [ngClass]="{ 
+            'active-child': isChildSelected(child) || isCurrentRoute(child.route),
             'menu-shorter': isMenuShorter,
-            'menu-shortest': isMenuShortest  
+            'menu-shortest': isMenuShortest,
+            'selected': isCurrentRoute(child.route) 
           }">
 
           <ng-container 
-          *ngIf="(!isMenuShorter && !isMenuShortest) || isShowed" 
-          class="shorter-icon">
-          <div class="menu-item" >
+          *ngIf="(!isMenuShorter && !isMenuShortest) || isShowed">
+          <div class="menu-item shorter-icon">
             <ng-container
               *ngIf="child.icon.includes('assets/')">
                 <img [src]="child.icon"/> 
@@ -92,23 +95,23 @@
           </div>
         </ng-container>
           
-        
-        <ng-container 
-          *ngIf="isMenuShorter && !isMenuShortest">
-            <div class="menu-item">
-              <ng-container
-                *ngIf="child.icon.includes('assets/')">
-                <img [src]="child.icon"/> 
-              </ng-container>
+        <!-- children -->
+          <ng-container 
+            *ngIf="isMenuShorter && !isMenuShortest">
+              <div class="menu-item">
+                <ng-container
+                  *ngIf="child.icon.includes('assets/')">
+                  <img [src]="child.icon"/> 
+                </ng-container>
 
-              <ng-container
-                *ngIf="!child.icon.includes('assets/')">
-                <span class="material-icons custom-icon">
-                  {{ child.icon }}
-                </span>
-              </ng-container>
-            </div> 
-        </ng-container>
+                <ng-container
+                  *ngIf="!child.icon.includes('assets/')">
+                  <span class="material-icons custom-icon">
+                    {{ child.icon }}
+                  </span>
+                </ng-container>
+              </div> 
+          </ng-container>
       </div>
     </div>
   </div>

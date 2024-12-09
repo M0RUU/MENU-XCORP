@@ -9,34 +9,34 @@ export const menuItems: MenuItem[] = [
   },
   {
     text: 'Task Management',
-    icon: 'assets/icons/sidebar/task-management.svg',
+    icon: '/assets/icons/sidebar/task-management.svg',
     route: '',
     open: false, 
     children: [
       {
         text: 'Projects',
-        icon: 'assets/icons/sidebar/task-management/projects.svg',
+        icon: '/assets/icons/sidebar/task-management/projects.svg',
         route: '/task-management/projects',
         open: false
       },
       {
         text: 'Task Finder',
-        icon: 'assets/icons/sidebar/task-management/task-finder.svg',
-        route: 'task-management/task-finder',
+        icon: '/assets/icons/sidebar/task-management/task-finder.svg',
+        route: '/task-management/task-finder',
         open: false
       },
       {
         text: 'Gantt',
-        icon: 'assets/icons/sidebar/task-management/gantt.svg',
-        route: 'task-management/gantt',
+        icon: '/assets/icons/sidebar/task-management/gantt.svg',
+        route: '/task-management/gantt',
         open: false
       },
     ]
   },
   {
     text: 'Work Tracking',
-    icon: 'assets/icons/sidebar/work-tracking.svg',
-    route: '/work-tracking',
+    icon: '/assets/icons/sidebar/work-tracking.svg',
+    route: '',
     open: false,
     children: [
       {
@@ -53,7 +53,7 @@ export const menuItems: MenuItem[] = [
       },
       {
         text: 'Settings',
-        icon: 'assets/icons/sidebar/work-tracking/settings.svg',
+        icon: '/assets/icons/sidebar/work-tracking/settings.svg',
         route: '/work-tracking/setting',
         open: false
       },
@@ -87,43 +87,43 @@ export const menuItems: MenuItem[] = [
   },
   {
     text: 'Leave',
-    icon: 'assets/icons/sidebar/leave.svg',
-    route: '/leave',
+    icon: '/assets/icons/sidebar/leave.svg',
+    route: '',
     open: false,
     children: [
       {
         text: 'Dashboard',
-        icon: 'assets/icons/sidebar/leave/dashboard.svg',
+        icon: '/assets/icons/sidebar/leave/dashboard.svg',
         route: '/leave/dashboard',
         open: false
       },
       {
         text: 'My Requests',
-        icon: 'assets/icons/sidebar/leave/my-requests.svg',
+        icon: '/assets/icons/sidebar/leave/my-requests.svg',
         route: '/leave/my-requests',
         open: false
       },
       {
         text: 'Approval',
-        icon: 'assets/icons/sidebar/leave/approval.svg',
+        icon: '/assets/icons/sidebar/leave/approval.svg',
         route: '/leave/approval',
         open: false
       },
       {
         text: 'Balance',
-        icon: 'assets/icons/sidebar/leave/balance.svg',
+        icon: '/assets/icons/sidebar/leave/balance.svg',
         route: '/leave/balance',
         open: false
       },
       {
         text: 'Report',
-        icon: 'assets/icons/sidebar/leave/report.svg',
+        icon: '/assets/icons/sidebar/leave/report.svg',
         route: '/leave/report',
         open: false
       },
       {
         text: 'Settings',
-        icon: 'assets/icons/sidebar/leave/setting.svg',
+        icon: '/assets/icons/sidebar/leave/setting.svg',
         route: '/leave/setting',
         open: false
       },
@@ -131,31 +131,31 @@ export const menuItems: MenuItem[] = [
   },
   {
     text: 'OKR Board',
-    icon: 'assets/icons/sidebar/okr-board.svg',
-    route: '/okr-board',
+    icon: '/assets/icons/sidebar/okr-board.svg',
+    route: '',
     open: false,
     children: [
       {
         text: 'My OKR',
-        icon: 'assets/icons/sidebar/okr-board/my-okr.svg',
+        icon: '/assets/icons/sidebar/okr-board/my-okr.svg',
         route: '/okr-board/my-okr',
         open: false
       },
       {
         text: 'OKR',
-        icon: 'assets/icons/sidebar/okr-board/okr.svg',
+        icon: '/assets/icons/sidebar/okr-board/okr.svg',
         route: '/okr-board/okr',
         open: false
       },
       {
         text: 'OKR Dashboard',
-        icon: 'assets/icons/sidebar/okr-board/okr-dashboard.svg',
+        icon: '/assets/icons/sidebar/okr-board/okr-dashboard.svg',
         route: '/okr-board/okr-dashboard',
         open: false
       },
       {
         text: 'OKR Settings',
-        icon: 'assets/icons/sidebar/okr-board/okr-settings.svg',
+        icon: '/assets/icons/sidebar/okr-board/okr-settings.svg',
         route: '/okr-board/okr-settings',
         open: false
       },
@@ -164,42 +164,42 @@ export const menuItems: MenuItem[] = [
   {
     text: 'Organization',
     icon: 'business',
-    route: '/organization',
+    route: '',
     open: false,
     children: [
       {
         text: 'Organization Tree',
-        icon: 'assets/icons/sidebar/organization/organization-tree.svg',
+        icon: '/assets/icons/sidebar/organization/organization-tree.svg',
         route: '/organization/organization-tree',
         open: false
       },
       {
         text: 'Location',
-        icon: 'assets/icons/sidebar/organization/location.svg',
+        icon: '/assets/icons/sidebar/organization/location.svg',
         route: '/organization/location',
         open: false
       },
       {
         text: 'Shift',
-        icon: 'assets/icons/sidebar/organization/shift.svg',
+        icon: '/assets/icons/sidebar/organization/shift.svg',
         route: '/organization/shift',
         open: false
       },
       {
         text: 'Team',
-        icon: 'assets/icons/sidebar/organization/team.svg',
+        icon: '/assets/icons/sidebar/organization/team.svg',
         route: '/organization/team',
         open: false
       },
       {
         text: 'Group',
-        icon: 'assets/icons/sidebar/organization/group.svg',
+        icon: '/assets/icons/sidebar/organization/group.svg',
         route: '/organization/group',
         open: false
       },
       {
         text: 'User',
-        icon: 'assets/icons/sidebar/organization/user.svg',
+        icon: '/assets/icons/sidebar/organization/user.svg',
         route: '/organization/user',
         open: false
       },
@@ -223,7 +223,7 @@ export const menuItems: MenuItem[] = [
       },
       {
         text: 'Integration',
-        icon: 'assets/icons/sidebar/organization/integration.svg',
+        icon: '/assets/icons/sidebar/organization/integration.svg',
         route: '/organization/integration',
         open: false
       },
@@ -231,19 +231,19 @@ export const menuItems: MenuItem[] = [
   },
   {
     text: 'HR',
-    icon: 'assets/icons/sidebar/hr.svg',
-    route: '/hr',
+    icon: '/assets/icons/sidebar/hr.svg',
+    route: '',
     open: false,
     children: [
       {
         text: 'Hiring Board',
-        icon: 'assets/icons/sidebar/hr/hiring-board.svg',
+        icon: '/assets/icons/sidebar/hr/hiring-board.svg',
         route: '/hr/hiring-board',
         open: false
       },
       {
         text: 'Onboard Management',
-        icon: 'assets/icons/sidebar/hr/onboard-management.svg',
+        icon: '/assets/icons/sidebar/hr/onboard-management.svg',
         route: '/hr/onboard-management',
         open: false
       },
@@ -255,25 +255,25 @@ export const menuItems: MenuItem[] = [
       },
       {
         text: 'Salary Profile',
-        icon: 'assets/icons/sidebar/hr/salary-profile.svg',
+        icon: '/assets/icons/sidebar/hr/salary-profile.svg',
         route: '/hr/salary-profile',
         open: false
       },
       {
         text: 'Pay Schedule',
-        icon: 'assets/icons/sidebar/hr/pay-schedule.svg',
+        icon: '/assets/icons/sidebar/hr/pay-schedule.svg',
         route: '/hr/pay-schedule',
         open: false
       },
       {
         text: 'Payroll',
-        icon: 'assets/icons/sidebar/hr/payroll.svg',
+        icon: '/assets/icons/sidebar/hr/payroll.svg',
         route: '/hr/payroll',
         open: false
       },
       {
         text: 'Settings',
-        icon: 'assets/icons/sidebar/hr/settings.svg',
+        icon: '/assets/icons/sidebar/hr/settings.svg',
         route: '/hr/settings',
         open: false
       },
@@ -281,20 +281,20 @@ export const menuItems: MenuItem[] = [
   },
   {
     text: 'Asset Management',
-    icon: 'assets/icons/sidebar/asset-management.svg',
+    icon: '/assets/icons/sidebar/asset-management.svg',
     route: '/asset-management',
     open: false
   },
   {
     text: 'Audit Log',
-    icon: 'assets/icons/sidebar/audit-log.svg',
+    icon: '/assets/icons/sidebar/audit-log.svg',
     route: '/audit-log',
     open: false
   },
   {
     text: 'Settings',
-    icon: 'assets/icons/sidebar/settings.svg',
-    route: '/settings',
+    icon: '/assets/icons/sidebar/settings.svg',
+    route: '',
     open: false,
     children: [
       {
@@ -311,7 +311,7 @@ export const menuItems: MenuItem[] = [
       },
       {
         text: 'Notifications',
-        icon: 'assets/icons/sidebar/settings/notifications.svg',
+        icon: '/assets/icons/sidebar/settings/notifications.svg',
         route: '/settings/notifications',
         open: false
       },
@@ -323,7 +323,7 @@ export const menuItems: MenuItem[] = [
       },
       {
         text: 'Event Location',
-        icon: 'assets/icons/sidebar/settings/event-location.svg',
+        icon: '/assets/icons/sidebar/settings/event-location.svg',
         route: '/settings/event-location',
         open: false
       },
