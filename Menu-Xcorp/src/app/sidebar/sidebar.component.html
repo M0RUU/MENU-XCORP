@@ -67,16 +67,15 @@
           class="menu-item-child" 
           *ngFor="let child of item.children" 
           (click)="selectChild(child, item)" 
-          [ngClass]="{ 'active-child': isChildSelected(child) }"
           [ngClass]="{ 
+            'active-child': isChildSelected(child),
             'menu-shorter': isMenuShorter,
             'menu-shortest': isMenuShortest  
           }">
 
           <ng-container 
-          *ngIf="(!isMenuShorter && !isMenuShortest) || isShowed" 
-          class="shorter-icon">
-          <div class="menu-item" >
+          *ngIf="(!isMenuShorter && !isMenuShortest) || isShowed">
+          <div class="menu-item shorter-icon">
             <ng-container
               *ngIf="child.icon.includes('assets/')">
                 <img [src]="child.icon"/> 
@@ -92,23 +91,23 @@
           </div>
         </ng-container>
           
-        
-        <ng-container 
-          *ngIf="isMenuShorter && !isMenuShortest">
-            <div class="menu-item">
-              <ng-container
-                *ngIf="child.icon.includes('assets/')">
-                <img [src]="child.icon"/> 
-              </ng-container>
+        <!-- children -->
+          <ng-container 
+            *ngIf="isMenuShorter && !isMenuShortest">
+              <div class="menu-item">
+                <ng-container
+                  *ngIf="child.icon.includes('assets/')">
+                  <img [src]="child.icon"/> 
+                </ng-container>
 
-              <ng-container
-                *ngIf="!child.icon.includes('assets/')">
-                <span class="material-icons custom-icon">
-                  {{ child.icon }}
-                </span>
-              </ng-container>
-            </div> 
-        </ng-container>
+                <ng-container
+                  *ngIf="!child.icon.includes('assets/')">
+                  <span class="material-icons custom-icon">
+                    {{ child.icon }}
+                  </span>
+                </ng-container>
+              </div> 
+          </ng-container>
       </div>
     </div>
   </div>

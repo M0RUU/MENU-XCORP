@@ -11,7 +11,6 @@ import { SettingComponent as WorkTrackingSettingComponent} from './work-tracking
 import { SettingComponent as LeaveSettingComponent} from './leave/setting/setting.component';
 import { TimesheetComponent } from './timesheet/timesheet.component';
 import { ReportsComponent } from './timesheet/reports/reports.component';
-import { WorkTrackingComponent } from './work-tracking/work-tracking.component';
 import { MyRequestsComponent } from './leave/my-requests/my-requests.component';
 import { ApprovalComponent } from './leave/approval/approval.component';
 import { BalanceComponent } from './leave/balance/balance.component';

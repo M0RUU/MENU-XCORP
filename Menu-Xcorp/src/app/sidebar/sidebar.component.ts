@@ -15,7 +15,7 @@ import { Router, RouterModule } from '@angular/router';
     RouterModule,
   ],
   templateUrl: './sidebar.component.html',
-  styleUrl: './sidebar.component.scss'
+  styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent {
   menuItems = menuItems;
@@ -29,9 +29,12 @@ export class SidebarComponent {
 
   navigation(route: string) {
     if (route) {
-      this.router.navigate([route]);
+      this.router.navigateByUrl(route).catch((err) => {
+        console.error('Navigation Error:', err);
+      });
     }
   }
+  
 
   toggleMenu(item: MenuItem): void {
     if (item.children) {
